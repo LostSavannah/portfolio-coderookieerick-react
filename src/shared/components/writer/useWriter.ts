@@ -12,9 +12,6 @@ export default function useWriter(lines:string[], onChange:(value:string)=>void)
                     index++;
                 }
                 let value:string = lines[index % lines.length].substring(0, letterIndex);
-                if(Date.now() % 3 == 0){
-                    value += '|';
-                }
                 onChange(value);
                 letterIndex++;
             }

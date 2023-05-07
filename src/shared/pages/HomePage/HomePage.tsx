@@ -19,8 +19,7 @@ export default function HomePage(){
                     <Jumbotron/>
                     <div className="container">
                         <div className="row">
-                            <div className="col-2"></div>
-                            <div className="col">
+                            <div className="col text-center">
                                 I can do <Writer messages={messages}></Writer>
                             </div>
                         </div>
