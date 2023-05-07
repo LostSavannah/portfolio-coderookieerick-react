@@ -8,6 +8,7 @@ import NotFound from './shared/pages/ErrorPages/NotFound.tsx';
 import Personal from './shared/pages/Personal/Personal.tsx';
 
 import './main.css';
+import App from './App.tsx';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    {/* <RouterProvider router={router}/> */}
+    <App></App>
   </React.StrictMode>,
 )
