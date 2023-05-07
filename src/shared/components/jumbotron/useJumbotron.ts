@@ -1,25 +1,23 @@
+import { ContactDataEntry, PortfolioService } from "../../services/PortfolioService";
 import { JumbotronProps } from "./Jumbotron";
+import { useState, useEffect } from 'react';
 
 export default function useJumbotron():JumbotronProps{
+    const [links, setLinks] = useState<ContactDataEntry[]>([]);
+
+    useEffect(() => {
+        new PortfolioService().getContactData()
+            .then(contactData => {
+                setLinks([...contactData.filter(c => c.contactType == 3)])
+            });
+    }, []);
+
+
     return {
         lines:["Erick Fernando Mora Ramirez", "Software developer"],
-        links:[
-            {
-                name: 'Github',
-                location: 'https://github.com/codeRookieErick'
-            },
-            {
-                name: 'Nuget',
-                location: 'https://www.nuget.org/profiles/codeRookieErick'
-            },
-            {
-                name: 'Pypi',
-                location: 'https://pypi.org/user/erick.mora'
-            },
-            {
-                name: 'Resume',
-                location: 'https://drive.google.com/drive/folders/164DI5lazSDvE8u5chMXRwJBG69kRwAc6?usp=share_link'
-            },
-        ]
+        links:links.map(l => ({
+            name: l.value,
+            location: l.url
+        }))
     }
 };

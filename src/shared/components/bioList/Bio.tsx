@@ -6,6 +6,6 @@ export type BioProps = {
 
 export default function Bio({bio}:BioProps){
     return(<>
-        <div className="shared-bio text-center">{bio.content}</div>
+        <div className="shared-bio">{bio.content}</div>
     </>);
 }; 
