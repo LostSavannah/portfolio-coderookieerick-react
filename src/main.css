@@ -1,0 +1,45 @@
+:root{
+    --body-background: #000;
+
+    --dark-color: #080808;
+    --light-color: #ddd;
+    --main-color: #33F;
+    --main-text-color: white;
+
+    --border-radius: 1em;
+
+    --padding-1: 0.35em;
+}
+
+body{
+    background: var(--body-background);
+}
+
+.pfl-bg-light{
+    background: var(--light-color);
+}
+
+.pfl-bg-dark{
+    background: var(--dark-color);
+}
+
+.pfl-jumbotron{
+    background: var(--dark-color);
+}
+
+.pfl-p-1{
+    padding: var(--padding-1);
+}
+
+.pfl-btn{
+    text-decoration: none;
+    color: var(--main-text-color);
+    border: solid 1px;
+    border-radius: var(--border-radius);
+    border-color: var(--main-color);
+    padding: var(--padding-1);
+}
+
+.pfl-progress{
+    color: var(--main-color);
+}

@@ -2,21 +2,22 @@ import { useRef } from "react";
 import useProgress from "./useProgress";
 
 export type ProgressProps = {
-    name:string,
-    value:number
+    value:number,
+    max:number,
+    interval?:number,
+    steps?:number
 }
 
-export default function Progress({name, value}:ProgressProps){
+export default function Progress({value, max, interval = 500, steps = 10}:ProgressProps){
     const r = useRef<HTMLSpanElement>(null);
-    useProgress(1000, 20, value, (n) => {
+    useProgress(interval, steps, value, (n) => {
         if(r != null){
-            r!.current!.innerHTML = n.toString();
+            let value:string = Array<string>(max)
+                .fill("☆", 0, max)
+                .fill("★", 0, n)
+                .join("");
+            r!.current!.innerHTML = value;
         }
     });
-    return (<>
-        <div className="row">
-            <div className="col-6">{name}</div>
-            <div className="col-6"><span ref={r}></span>%</div>
-        </div>
-    </>);
+    return (<><span className="pfl-progress" ref={r}></span></>);
 }
